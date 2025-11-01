@@ -34,6 +34,9 @@ No terminal do IntelliJ (View → Tool Windows → Terminal):
 docker-compose up -d
 ```
 
+**Nota:** O projeto usa porta **5433** (não 5432) para evitar conflitos.  
+**Importante:** Se você tiver PostgreSQL local rodando na porta 5433, pare-o primeiro (veja `STOP_POSTGRES_5433.md`) ou o Spring Boot gerenciará automaticamente o Docker Compose.
+
 ### 6. Criar Run Configuration
 
 **Opção A: Automático (Recomendado)**
@@ -65,8 +68,17 @@ curl http://localhost:8080/api/books
 **"Port 8080 already in use"**
 → Altere em `application.properties`: `server.port=8081`
 
+**"Port 5433 already allocated" / "Bind for 0.0.0.0:5433 failed"**
+→ Pare o PostgreSQL local que está usando a porta 5433 (veja `STOP_POSTGRES_5433.md`)
+→ Ou altere a porta em `compose.yaml` para outra (ex: 5434) e atualize `application.properties`
+→ Verifique se `application.properties` tem: `spring.datasource.url=jdbc:postgresql://localhost:5433/bookstore`
+→ Verifique se `compose.yaml` tem: `"5433:5432"` na seção ports
+
 **"Cannot connect to database"**
 → Verifique: `docker-compose ps` (deve mostrar "Up")
+→ Verifique se a porta no `application.properties` corresponde à porta do docker-compose (5433)
+→ Certifique-se de que iniciou o PostgreSQL manualmente: `docker-compose up -d`
+→ Verifique logs: `docker-compose logs postgres`
 
 ## ✅ Checklist
 

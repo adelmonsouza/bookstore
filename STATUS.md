@@ -21,9 +21,11 @@
 - ✅ Templates `.example`: Disponíveis
 - ✅ Docker Compose: Configurado
 
-### ⚠️ PostgreSQL
-- ⚠️ **Porta 5432 em uso** - Verifique se já tem PostgreSQL rodando
-- 💡 Solução: Use outro container ou pare o serviço existente
+### ✅ PostgreSQL
+- ✅ Configurado para usar porta **5433** (externa) → 5432 (interna)
+- ✅ Evita conflitos com outros serviços PostgreSQL na porta 5432
+- ✅ `application.properties` configurado com porta 5433
+- ✅ `compose.yaml` configurado corretamente
 
 ### ✅ Documentação
 - ✅ README.md completo
@@ -38,29 +40,17 @@
 
 ## 🚀 Próximos Passos
 
-### 1. Resolver PostgreSQL
-Se a porta 5432 estiver em uso:
+### 1. PostgreSQL ✅ Resolvido
+O projeto está configurado para usar porta **5433** por padrão, evitando conflitos.
 
-**Opção A:** Parar serviço existente
+**Para iniciar:**
 ```bash
-# Verificar o que está usando a porta
-lsof -i :5432
-
-# Parar se necessário
-docker ps  # Ver containers
-docker stop <container-id>
+docker-compose up -d
 ```
 
-**Opção B:** Usar porta diferente
-Edite `compose.yaml`:
-```yaml
-ports:
-  - "5433:5432"  # Use porta 5433 externamente
-```
-
-E atualize `application.properties`:
-```properties
-spring.datasource.url=jdbc:postgresql://localhost:5433/bookstore
+**Verificar:**
+```bash
+docker-compose ps  # Deve mostrar bookstore-postgres na porta 5433
 ```
 
 ### 2. Testar no IntelliJ
@@ -76,7 +66,7 @@ Siga: `GITHUB_PUSH.md`
 | Git | ✅ Pronto |
 | Código | ✅ Compila |
 | Documentação | ✅ Completa |
-| PostgreSQL | ⚠️ Porta em uso |
+| PostgreSQL | ✅ Configurado (porta 5433) |
 | IntelliJ | ⏳ Aguardando abertura |
 | GitHub | ⏳ Aguardando push |
 
@@ -84,5 +74,5 @@ Siga: `GITHUB_PUSH.md`
 
 **Status Geral: ✅ PRONTO PARA DESENVOLVIMENTO**
 
-Com exceção da configuração do PostgreSQL (porta 5432), tudo está pronto!
+Tudo configurado e pronto! O PostgreSQL está usando porta 5433 para evitar conflitos.
 

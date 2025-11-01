@@ -13,7 +13,7 @@ docker-compose up -d
 Isso irá:
 - ✅ Criar um container PostgreSQL 15
 - ✅ Configurar o banco `bookstore`
-- ✅ Expôr na porta `5432`
+- ✅ Expôr na porta **5433** (externa) → 5432 (interna no container)
 
 **Verificar se está rodando:**
 ```bash
@@ -74,14 +74,15 @@ docker-compose down
 
 ## 🐛 Troubleshooting
 
-### Erro: "Port 5432 already in use"
-```bash
-# Verificar o que está usando a porta
-lsof -i :5432
+### Erro: "Port 5433 already allocated" / "Bind for 0.0.0.0:5433 failed"
+O projeto está configurado para usar porta **5433** por padrão para evitar conflitos.
 
-# Parar outros containers PostgreSQL
-docker ps
-docker stop <container-id>
+**Solução:** Pare o PostgreSQL local que está usando a porta 5433:
+```bash
+# Via Homebrew
+brew services stop postgresql@14 postgresql@17
+
+# Ou veja STOP_POSTGRES_5433.md para mais opções
 ```
 
 ### Erro: "Cannot connect to database"
@@ -116,7 +117,7 @@ kill -9 <PID>
 ## 📚 Recursos Úteis
 
 - **API Base URL:** `http://localhost:8080/api/books`
-- **PostgreSQL:** `localhost:5432`
+- **PostgreSQL:** `localhost:5433` (porta externa)
 - **Database:** `bookstore`
 - **Username:** `postgres`
 - **Password:** `admin`

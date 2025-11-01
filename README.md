@@ -223,9 +223,10 @@ cp src/main/resources/application.properties.example \
 2. **Editar `application.properties` com suas credenciais:**
 ```properties
 # Database (use variáveis de ambiente em produção!)
-spring.datasource.url=jdbc:postgresql://localhost:5432/bookstore
+# Nota: Usando porta 5433 para evitar conflitos (porta 5432 já está em uso)
+spring.datasource.url=jdbc:postgresql://localhost:5433/bookstore
 spring.datasource.username=${DB_USERNAME:postgres}
-spring.datasource.password=${DB_PASSWORD}
+spring.datasource.password=${DB_PASSWORD:admin}
 
 # JPA
 spring.jpa.hibernate.ddl-auto=update
