@@ -363,12 +363,19 @@ Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalh
 
 ## 📚 Documentação Adicional
 
+### 🚀 Início Rápido
 - 📖 [API_EXAMPLES.md](API_EXAMPLES.md) - Exemplos práticos de uso da API
-- 🚀 [QUICKSTART.md](QUICKSTART.md) - Guia de início rápido
+- 🚀 [QUICKSTART.md](QUICKSTART.md) - Guia de início rápido (3 minutos)
+- 💻 [INTELLIJ_SETUP.md](INTELLIJ_SETUP.md) - Configuração completa do IntelliJ IDEA
+
+### 🔒 Segurança e Qualidade
 - 🔒 [SECURITY.md](SECURITY.md) - Guia de segurança e proteção de dados sensíveis
 - ✅ [PRE_COMMIT_CHECKLIST.md](PRE_COMMIT_CHECKLIST.md) - Checklist antes de fazer commit
 - 🤝 [CONTRIBUTING.md](CONTRIBUTING.md) - Guia de contribuição e padrões de código
-- 📤 [GITHUB_SETUP.md](GITHUB_SETUP.md) - Configuração do repositório GitHub
+
+### 📤 Git e GitHub
+- 📤 [GITHUB_SETUP.md](GITHUB_SETUP.md) - Configuração inicial do repositório GitHub
+- 📤 [GITHUB_PUSH.md](GITHUB_PUSH.md) - Guia rápido para fazer push
 
 ## 🔒 Segurança
 
