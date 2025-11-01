@@ -1,0 +1,137 @@
+# Maven
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+.mvn/wrapper/maven-wrapper.jar
+
+# IDE - STS
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+# IDE - IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+# IDE - NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# IDE - VS Code
+.vscode/
+*.code-workspace
+
+# IDE - Eclipse
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.loadpath
+.recommenders
+
+# Mac
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Application - Sensitive Data
+# Ignore all application properties except examples
+src/main/resources/application.properties
+application-local.properties
+application-*.properties
+!application.properties.example
+*.env
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+logs/
+*.log.*
+*.gz
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+data/
+
+# Docker
+docker-compose.override.yaml
+docker-compose.local.yaml
+*.dockerignore.local
+
+# Secrets and Keys
+secrets/
+*.key
+*.pem
+*.p12
+*.jks
+*.pfx
+*.cert
+*.crt
+*.keystore
+*.truststore
+
+# Temporary files
+*.tmp
+*.temp
+*.cache
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# Backup files
+*.bak
+*.backup
+*.old
+
+# Package files
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+!mvnw
+
+# Test coverage
+.nyc_output/
+coverage/
+*.lcov
+
+# Spring Boot
+spring-boot-devtools.properties
