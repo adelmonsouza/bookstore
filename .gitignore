@@ -98,6 +98,12 @@ secrets/
 *.keystore
 *.truststore
 
+# SSH Keys and credentials
+CHAVE_SSH_*.txt
+*_SSH_KEYS.md
+*_TOKEN*.md
+*_AUTH_*.md
+
 # Temporary files
 *.tmp
 *.temp

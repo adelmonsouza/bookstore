@@ -65,8 +65,8 @@ docker-compose up -d
 Isso criará um container PostgreSQL com as seguintes credenciais:
 - **Database:** `bookstore`
 - **Username:** `postgres`
-- **Password:** `admin`
-- **Port:** `5432`
+- **Password:** Configurado via `POSTGRES_PASSWORD` em `compose.yaml` (padrão: `admin` apenas para desenvolvimento)
+- **Port:** `5433` (externa) → `5432` (interna no container)
 
 ### 3. Execute a aplicação
 
@@ -226,7 +226,7 @@ cp src/main/resources/application.properties.example \
 # Nota: Usando porta 5433 para evitar conflitos (porta 5432 já está em uso)
 spring.datasource.url=jdbc:postgresql://localhost:5433/bookstore
 spring.datasource.username=${DB_USERNAME:postgres}
-spring.datasource.password=${DB_PASSWORD:admin}
+spring.datasource.password=${DB_PASSWORD}  # Use variável de ambiente ou configure no application.properties (não commite!)
 
 # JPA
 spring.jpa.hibernate.ddl-auto=update
@@ -246,7 +246,7 @@ cp compose.yaml.example compose.yaml
 2. **Usar variáveis de ambiente:**
 ```bash
 export POSTGRES_USER=postgres
-export POSTGRES_PASSWORD=sua_senha_segura
+export POSTGRES_PASSWORD=SUA_SENHA_SEGURA  # Configure uma senha forte para desenvolvimento local
 docker-compose up -d
 ```
 

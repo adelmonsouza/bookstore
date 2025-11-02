@@ -120,7 +120,7 @@ kill -9 <PID>
 - **PostgreSQL:** `localhost:5433` (porta externa)
 - **Database:** `bookstore`
 - **Username:** `postgres`
-- **Password:** `admin`
+- **Password:** Verifique em `compose.yaml` ou use a variável `POSTGRES_PASSWORD`
 
 ---
 

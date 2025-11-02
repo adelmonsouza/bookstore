@@ -9,7 +9,7 @@ Host:     localhost
 Port:     5434
 Database: bookstore
 Username: postgres
-Password: admin
+Password: ${POSTGRES_PASSWORD:-admin}  # Use a senha configurada no Docker Compose
 ```
 
 ## 🚀 Passo a Passo no DBeaver
@@ -39,7 +39,7 @@ Preencha os campos:
 - **Port:** `5434` ⚠️ **IMPORTANTE: Porta 5434 (não 5432)**
 - **Database:** `bookstore`
 - **Username:** `postgres`
-- **Password:** `admin`
+- **Password:** Use a senha configurada em `compose.yaml` (padrão: `admin` para desenvolvimento)
 - ✅ **Marque "Save password"** (opcional, mas útil)
 
 #### Driver Properties (Opcional)
@@ -63,7 +63,7 @@ Se quiser ajustar timeouts:
 4. Se der erro, verifique:
    - Container PostgreSQL está rodando: `docker ps | grep bookstore-postgres`
    - Porta está correta (5434)
-   - Senha está correta (admin)
+   - Senha está correta (verifique `compose.yaml`)
 
 ### 5. Finalizar
 
@@ -170,7 +170,7 @@ docker ps | grep bookstore-postgres
 ### Erro: "Authentication failed"
 → Verifique credenciais:
 - Username: `postgres`
-- Password: `admin`
+- Password: Verifique a senha em `compose.yaml` ou variável de ambiente `POSTGRES_PASSWORD`
 - Port: `5434`
 
 ### Erro: "Database does not exist"
